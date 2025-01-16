@@ -2,6 +2,16 @@ return require("lazy").setup({
   -- Manage lazy.nvim itself
   { "folke/lazy.nvim" },
 
+  -- Colorscheme (Solarized Dark)
+  {
+    "Tsuzat/NeoSolarized.nvim",
+      lazy = false, -- make sure we load this during startup
+      priority = 1000, -- make sure to load this before all the other start plugins
+      config = function()
+        vim.cmd [[ colorscheme NeoSolarized ]]
+      end
+  },
+
   -- Treesitter for better syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
