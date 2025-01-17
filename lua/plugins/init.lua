@@ -40,10 +40,9 @@ return require("lazy").setup({
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("lspconfig").pyright.setup({})
+      require("plugins.lsp")
     end,
   },
-
 
   -- File explorer
   {
