@@ -14,14 +14,15 @@ return require("lazy").setup({
   -- Manage lazy.nvim itself
   { "folke/lazy.nvim" },
 
+
   -- Colorscheme (Solarized Dark)
   {
-    "Tsuzat/NeoSolarized.nvim",
-      lazy = false, -- make sure we load this during startup
-      priority = 1000, -- make sure to load this before all the other start plugins
-      config = function()
-        vim.cmd [[ colorscheme NeoSolarized ]]
-      end
+    "ishan9299/nvim-solarized-lua",
+    lazy = false, -- Load during startup
+    priority = 1000, -- Ensure it loads before other plugins
+    config = function()
+      vim.cmd [[ colorscheme solarized ]]
+    end,
   },
 
   -- Treesitter for better syntax highlighting
@@ -30,8 +31,19 @@ return require("lazy").setup({
     build = ":TSUpdate",
     config = function()
       require("nvim-treesitter.configs").setup({
-        ensure_installed = { "lua", "python", "javascript" },
-        highlight = { enable = true },
+        -- Add all required parsers here
+        ensure_installed = { "lua", "python", "javascript", "elixir", "eex", "heex" },
+
+        -- Enable syntax highlighting
+        highlight = {
+          enable = true, -- Enable Treesitter-based highlighting
+          additional_vim_regex_highlighting = false, -- Disable legacy Vim regex highlighting
+        },
+
+        -- Enable Treesitter-based indentation for supported languages
+        indent = {
+          enable = true,
+        },
       })
     end,
   },
