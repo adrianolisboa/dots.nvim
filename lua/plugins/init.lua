@@ -51,7 +51,13 @@ return require("lazy").setup({
       require("plugins.nvim-tree")
     end,
   },
-  { "nvim-tree/nvim-web-devicons", opts = {} },
+
+  {
+    "nvim-tree/nvim-web-devicons",
+    opts = {
+      default = true, -- Enable default icons
+    },
+  },
 
   -- Statusline
   {
