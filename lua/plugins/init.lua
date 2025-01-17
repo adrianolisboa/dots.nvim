@@ -97,6 +97,8 @@ return require("lazy").setup({
     end,
   },
 
+
+  ------ UI Plugins ------
   -- File explorer
   {
     "nvim-tree/nvim-tree.lua",
@@ -128,6 +130,16 @@ return require("lazy").setup({
       require("lualine").setup({
         options = { theme = "auto" },
       })
+    end,
+  },
+
+  -- Bufferline
+  {
+    "akinsho/bufferline.nvim",
+    version = "v3.*",
+    dependencies = "nvim-tree/nvim-web-devicons",
+    config = function()
+      require("plugins.specs.bufferline")
     end,
   },
 })
