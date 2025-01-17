@@ -48,6 +48,40 @@ return require("lazy").setup({
     end,
   },
 
+  -- nvim-cmp: Auto-completion plugin
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+      "hrsh7th/cmp-buffer",   -- Buffer source for nvim-cmp
+      "hrsh7th/cmp-path",     -- Path source for nvim-cmp
+    },
+    config = function()
+      local cmp = require("cmp")
+      cmp.setup({
+        -- Add different completion sources
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" }, -- Completion from LSP
+          { name = "buffer" },   -- Completion from current buffer
+          { name = "path" },     -- Completion for file paths
+        }),
+
+        -- Default mapping preset
+        mapping = cmp.mapping.preset.insert({
+          ["<C-Space>"] = cmp.mapping.complete(), -- Trigger completion menu
+          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Confirm selection
+        }),
+
+        -- Snippet support
+        snippet = {
+          expand = function(args)
+            -- Native snippet expansion using Neovim 0.10+ feature
+            vim.fn["vsnip#anonymous"](args.body)
+          end,
+        },
+      })
+    end,
+  },
   -- LSP configuration
   {
     "neovim/nvim-lspconfig",
