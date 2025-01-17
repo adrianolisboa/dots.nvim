@@ -24,6 +24,7 @@ return require("lazy").setup({
       vim.cmd [[ colorscheme solarized ]]
     end,
   },
+
   -- File explorer
   {
     "nvim-tree/nvim-tree.lua",
@@ -32,6 +33,7 @@ return require("lazy").setup({
     end,
   },
 
+  -- Icons for file explorer
   {
     "nvim-tree/nvim-web-devicons",
     opts = {
@@ -39,6 +41,7 @@ return require("lazy").setup({
     },
   },
 
+  -- Telescope for fuzzy finding
   {
     'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
@@ -88,6 +91,15 @@ return require("lazy").setup({
           enable = true,
         },
       })
+    end,
+  },
+
+  -- Indentation guides
+  {
+    "lukas-reineke/indent-blankline.nvim",
+    version = "v3.*",
+    config = function()
+      require("plugins.specs.indent_blankline")
     end,
   },
 
