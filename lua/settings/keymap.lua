@@ -22,4 +22,25 @@ keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Close current buffer" })
 keymap("n", "<leader>br", ":BufferLineMoveNext<CR>", { desc = "Move buffer right" })
 keymap("n", "<leader>bl", ":BufferLineMovePrev<CR>", { desc = "Move buffer left" })
 
+-- Neotest keymaps
+keymap("n", "<leader>tn", function()
+  require("neotest").run.run()
+end, { desc = "Run nearest test" })
+
+keymap("n", "<leader>tf", function()
+  require("neotest").run.run(vim.fn.expand("%"))
+end, { desc = "Run tests in the current file" })
+
+keymap("n", "<leader>ts", function()
+  require("neotest").run.run("test_suite")
+end, { desc = "Run the entire test suite" })
+
+keymap("n", "<leader>tl", function()
+  require("neotest").run.run_last()
+end, { desc = "Re-run the last test" })
+
+keymap("n", "<leader>tv", function()
+  require("neotest").output.open({ enter = true })
+end, { desc = "View test output" })
+
 return true

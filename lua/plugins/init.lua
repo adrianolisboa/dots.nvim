@@ -14,7 +14,7 @@ return require("lazy").setup({
   -- Manage lazy.nvim itself
   { "folke/lazy.nvim" },
 
-
+  ------ UI Plugins ------
   -- Colorscheme (Solarized Dark)
   {
     "ishan9299/nvim-solarized-lua",
@@ -24,81 +24,6 @@ return require("lazy").setup({
       vim.cmd [[ colorscheme solarized ]]
     end,
   },
-
-  -- GitHub Copilot
-  {
-    "github/copilot.vim",
-    lazy = false, -- Load immediately during startup
-  },
-
-  -- Treesitter for better syntax highlighting
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        -- Add all required parsers here
-        ensure_installed = { "lua", "python", "javascript", "elixir", "eex", "heex" },
-
-        -- Enable syntax highlighting
-        highlight = {
-          enable = true, -- Enable Treesitter-based highlighting
-          additional_vim_regex_highlighting = false, -- Disable legacy Vim regex highlighting
-        },
-
-        -- Enable Treesitter-based indentation for supported languages
-        indent = {
-          enable = true,
-        },
-      })
-    end,
-  },
-
-  -- nvim-cmp: Auto-completion plugin
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
-      "hrsh7th/cmp-buffer",   -- Buffer source for nvim-cmp
-      "hrsh7th/cmp-path",     -- Path source for nvim-cmp
-    },
-    config = function()
-      local cmp = require("cmp")
-      cmp.setup({
-        -- Add different completion sources
-        sources = cmp.config.sources({
-          { name = "nvim_lsp" }, -- Completion from LSP
-          { name = "buffer" },   -- Completion from current buffer
-          { name = "path" },     -- Completion for file paths
-        }),
-
-        -- Default mapping preset
-        mapping = cmp.mapping.preset.insert({
-          ["<C-Space>"] = cmp.mapping.complete(), -- Trigger completion menu
-          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Confirm selection
-        }),
-
-        -- Snippet support
-        snippet = {
-          expand = function(args)
-            -- Native snippet expansion using Neovim 0.10+ feature
-            vim.fn["vsnip#anonymous"](args.body)
-          end,
-        },
-      })
-    end,
-  },
-
-  -- LSP configuration
-  {
-    "neovim/nvim-lspconfig",
-    config = function()
-      require("plugins.specs.lsp")
-    end,
-  },
-
-
-  ------ UI Plugins ------
   -- File explorer
   {
     "nvim-tree/nvim-tree.lua",
@@ -140,6 +65,96 @@ return require("lazy").setup({
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("plugins.specs.bufferline")
+    end,
+  },
+
+  -- Treesitter for better syntax highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        -- Add all required parsers here
+        ensure_installed = { "lua", "python", "javascript", "elixir", "eex", "heex" },
+
+        -- Enable syntax highlighting
+        highlight = {
+          enable = true, -- Enable Treesitter-based highlighting
+          additional_vim_regex_highlighting = false, -- Disable legacy Vim regex highlighting
+        },
+
+        -- Enable Treesitter-based indentation for supported languages
+        indent = {
+          enable = true,
+        },
+      })
+    end,
+  },
+
+  ------ A.I Plugins ------
+  -- GitHub Copilot
+  {
+    "github/copilot.vim",
+    lazy = false, -- Load immediately during startup
+  },
+
+  ------ Programming Plugins ------
+  {
+    "nvim-neotest/neotest",
+    dependencies = {
+      "nvim-lua/plenary.nvim",            -- Required for general functionality
+      "nvim-treesitter/nvim-treesitter", -- For better parsing and support
+      "antoinemadec/FixCursorHold.nvim", -- Fix CursorHold performance
+      "jfpedroza/neotest-elixir",        -- Elixir adapter
+      "haydenmeade/neotest-jest",        -- JavaScript (Jest) adapter
+      "nvim-neotest/nvim-nio",
+    },
+    config = function()
+      require("plugins.specs.neotest")
+    end,
+  },
+
+  -- nvim-cmp: Auto-completion plugin
+  {
+    "hrsh7th/nvim-cmp",
+    dependencies = {
+      "hrsh7th/cmp-nvim-lsp", -- LSP source for nvim-cmp
+      "hrsh7th/cmp-buffer",   -- Buffer source for nvim-cmp
+      "hrsh7th/cmp-path",     -- Path source for nvim-cmp
+    },
+    config = function()
+      local cmp = require("cmp")
+      cmp.setup({
+        -- Add different completion sources
+        sources = cmp.config.sources({
+          { name = "nvim_lsp" }, -- Completion from LSP
+          { name = "buffer" },   -- Completion from current buffer
+          { name = "path" },     -- Completion for file paths
+        }),
+
+        -- Default mapping preset
+        mapping = cmp.mapping.preset.insert({
+          ["<C-Space>"] = cmp.mapping.complete(), -- Trigger completion menu
+          ["<CR>"] = cmp.mapping.confirm({ select = true }), -- Confirm selection
+        }),
+
+        -- Snippet support
+        snippet = {
+          expand = function(args)
+            -- Native snippet expansion using Neovim 0.10+ feature
+            vim.fn["vsnip#anonymous"](args.body)
+          end,
+        },
+      })
+    end,
+  },
+
+  ------ Language Server Plugins ------
+  -- LSP configuration
+  {
+    "neovim/nvim-lspconfig",
+    config = function()
+      require("plugins.specs.lsp")
     end,
   },
 })
