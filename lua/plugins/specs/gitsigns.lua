@@ -26,7 +26,7 @@ require("gitsigns").setup({
     keymap("n", "<leader>gs", ":Gitsigns status<CR>", { desc = "Git status" })
 
     -- Checkout (revert changes to file)
-    keymap("n", "<leader>gc", function()
+    keymap("n", "<leader>gr", function()
       if vim.fn.confirm("Revert file to original status?", "&Yes\n&No", 1) == 1 then
         gs.reset_buffer()
       end

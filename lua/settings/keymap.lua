@@ -48,14 +48,12 @@ keymap("n", "<leader>mf", function()
   require("conform").format({ async = true })
 end, { desc = "Format current file" })
 
--- Verbose formatting
-keymap("n", "<leader>mfv", function()
-  require("conform").format({ async = false, verbose = true })
-end, { desc = "Format current file verbosely" })
-
--- Show formatting diff
-keymap("n", "<leader>mfd", function()
+keymap("n", "<leader>md", function()
   require("conform").format({ diff = true })
 end, { desc = "Format and show diff" })
+
+keymap("n", "<leader>mv", function()
+  require("conform").format({ async = false, verbose = true })
+end, { desc = "Verbose format" })
 
 return true

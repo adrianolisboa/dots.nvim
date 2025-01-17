@@ -41,6 +41,14 @@ return require("lazy").setup({
     },
   },
 
+  {
+    "echasnovski/mini.icons",
+    version = false,
+    config = function()
+      require("mini.icons").setup()
+    end,
+  },
+
   -- Telescope for fuzzy finding
   {
     'nvim-telescope/telescope.nvim',
@@ -108,6 +116,14 @@ return require("lazy").setup({
     "stevearc/conform.nvim",
     config = function()
       require("plugins.specs.conform")
+    end,
+  },
+
+  -- Which-key for keybindings
+  {
+    "folke/which-key.nvim",
+    config = function()
+      require("plugins.specs.which-key")
     end,
   },
 
