@@ -93,7 +93,7 @@ return require("lazy").setup({
   {
     "neovim/nvim-lspconfig",
     config = function()
-      require("plugins.lsp")
+      require("plugins.specs.lsp")
     end,
   },
 
@@ -103,7 +103,7 @@ return require("lazy").setup({
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
-      require("plugins.nvim-tree")
+      require("plugins.specs.nvim-tree")
     end,
   },
 
