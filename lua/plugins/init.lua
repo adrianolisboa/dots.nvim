@@ -25,6 +25,12 @@ return require("lazy").setup({
     end,
   },
 
+  -- GitHub Copilot
+  {
+    "github/copilot.vim",
+    lazy = false, -- Load immediately during startup
+  },
+
   -- Treesitter for better syntax highlighting
   {
     "nvim-treesitter/nvim-treesitter",
