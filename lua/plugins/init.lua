@@ -44,11 +44,12 @@ return require("lazy").setup({
     end,
   },
 
+
   -- File explorer
   {
     "nvim-tree/nvim-tree.lua",
     config = function()
-      require("nvim-tree").setup()
+      require("plugins.nvim-tree")
     end,
   },
   { "nvim-tree/nvim-web-devicons", opts = {} },
