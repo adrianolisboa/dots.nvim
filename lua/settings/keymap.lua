@@ -16,11 +16,10 @@ keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
 
 -- Bufferline
-keymap("n", "<S-l>", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
-keymap("n", "<S-h>", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
-
-keymap("n", "<leader>bn", ":BufferLineMoveNext<CR>", { desc = "Move buffer right" })
-keymap("n", "<leader>bp", ":BufferLineMovePrev<CR>", { desc = "Move buffer left" })
+keymap("n", "<leader>bn", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
+keymap("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
 keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Close current buffer" })
+keymap("n", "<leader>br", ":BufferLineMoveNext<CR>", { desc = "Move buffer right" })
+keymap("n", "<leader>bl", ":BufferLineMovePrev<CR>", { desc = "Move buffer left" })
 
 return true
