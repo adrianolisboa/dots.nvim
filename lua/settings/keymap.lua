@@ -6,8 +6,12 @@ keymap("n", "<leader>nt", function()
   require("nvim-tree.api").tree.toggle()
 end, { noremap = true, silent = true, desc = "Toggle Nvim Tree" })
 
--- Example: Add more custom keymaps here
--- keymap("n", "<leader>ff", ":Telescope find_files<CR>", { noremap = true, silent = true, desc = "Find Files" })
--- keymap("n", "<leader>lg", ":LazyGit<CR>", { noremap = true, silent = true, desc = "Open LazyGit" })
+-- Telescope
+local builtin = require('telescope.builtin')
 
-return true -- Indicate the file was successfully loaded
+keymap('n', '<leader>ff', builtin.find_files, { desc = 'Telescope find files' })
+keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
+keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
+keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
+
+return true

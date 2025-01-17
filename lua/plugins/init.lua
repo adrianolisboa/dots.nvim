@@ -88,6 +88,7 @@ return require("lazy").setup({
       })
     end,
   },
+
   -- LSP configuration
   {
     "neovim/nvim-lspconfig",
@@ -109,6 +110,15 @@ return require("lazy").setup({
     opts = {
       default = true, -- Enable default icons
     },
+  },
+
+  {
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' }, -- Required dependency
+    config = function()
+      require('telescope').setup()
+    end,
   },
 
   -- Statusline
