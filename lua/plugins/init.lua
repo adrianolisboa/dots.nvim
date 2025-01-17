@@ -1,3 +1,15 @@
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+
 return require("lazy").setup({
   -- Manage lazy.nvim itself
   { "folke/lazy.nvim" },
@@ -39,6 +51,7 @@ return require("lazy").setup({
       require("nvim-tree").setup()
     end,
   },
+  { "nvim-tree/nvim-web-devicons", opts = {} },
 
   -- Statusline
   {
@@ -48,14 +61,5 @@ return require("lazy").setup({
         options = { theme = "auto" },
       })
     end,
-  },
-
-  -- Autocompletion
-  {
-    "hrsh7th/nvim-cmp",
-    dependencies = {
-      "hrsh7th/cmp-nvim-lsp",
-      "L3MON4D3/LuaSnip", -- Snippet engine
-    },
   },
 })

@@ -1,16 +1,12 @@
--- Bootstrap lazy.nvim
-local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
-if not vim.loop.fs_stat(lazypath) then
-  vim.fn.system({
-    "git",
-    "clone",
-    "--filter=blob:none",
-    "https://github.com/folke/lazy.nvim.git",
-    lazypath,
-  })
-end
-vim.opt.rtp:prepend(lazypath)
+-- Enable Lua module loader for faster startup
+vim.loader.enable()
 
--- Load configurations
-require("settings")   -- General settings
-require("plugins")    -- Plugin definitions
+-- Base cache directory
+vim.g.base46_cache = vim.fn.stdpath("data") .. "/nvchad/base46/"
+
+-- Load settings and plugins
+require("settings")            -- Main settings
+require("settings.options")    -- Options like tab settings, UI tweaks, etc.
+require("settings.autocmd")    -- Autocommands for specific behaviors
+require("settings.keymap")     -- Key mappings
+require("plugins")             -- Plugin setup

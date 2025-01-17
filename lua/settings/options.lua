@@ -1,11 +1,34 @@
+local g = vim.g
+local o = vim.opt
+
+--- Global options
+
+-- Leader key
+g.mapleader = " "
+
+--- Local options
+
 -- Indentation settings
-vim.opt.expandtab = true            -- Use spaces instead of tabs
-vim.opt.shiftwidth = 4              -- Indent size for auto-indent
-vim.opt.tabstop = 4                 -- Tab size
-vim.opt.smartindent = true          -- Enable smart indentation
+o.expandtab = true            -- Use spaces instead of tabs
+o.shiftwidth = 4              -- Indent size for auto-indent
+o.tabstop = 4                 -- Tab size
+o.smartindent = true          -- Enable smart indentation
 
 -- Search settings
-vim.opt.ignorecase = true           -- Ignore case in searches
-vim.opt.smartcase = true            -- Case-sensitive when uppercase is used
-vim.opt.hlsearch = true             -- Highlight search results
-vim.opt.incsearch = true            -- Show search matches as you type
+o.ignorecase = true           -- Ignore case in searches
+o.smartcase = true            -- Case-sensitive when uppercase is used
+o.hlsearch = true             -- Highlight search results
+o.incsearch = true            -- Show search matches as you type
+
+-- Enable mouse support
+o.mouse = "a"
+
+-- Use system clipboard
+o.clipboard = "unnamedplus"
+
+-- Visual settings
+o.number = true               -- Show line numbers
+o.relativenumber = true       -- Relative line numbers
+o.termguicolors = true        -- Enable 24-bit RGB colors
+o.splitright = true           -- Vertical splits go to the right
+o.splitbelow = true           -- Horizontal splits go below
