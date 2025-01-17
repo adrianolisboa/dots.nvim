@@ -103,6 +103,14 @@ return require("lazy").setup({
     end,
   },
 
+  -- Formatter
+  {
+    "stevearc/conform.nvim",
+    config = function()
+      require("plugins.specs.conform")
+    end,
+  },
+
   ------ A.I Plugins ------
   -- GitHub Copilot
   {

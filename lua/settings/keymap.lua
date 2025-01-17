@@ -43,4 +43,19 @@ keymap("n", "<leader>tv", function()
   require("neotest").output.open({ enter = true })
 end, { desc = "View test output" })
 
+-- Formatter
+keymap("n", "<leader>mf", function()
+  require("conform").format({ async = true })
+end, { desc = "Format current file" })
+
+-- Verbose formatting
+keymap("n", "<leader>mfv", function()
+  require("conform").format({ async = false, verbose = true })
+end, { desc = "Format current file verbosely" })
+
+-- Show formatting diff
+keymap("n", "<leader>mfd", function()
+  require("conform").format({ diff = true })
+end, { desc = "Format and show diff" })
+
 return true
