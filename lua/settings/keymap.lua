@@ -18,6 +18,15 @@ keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
+keymap('n', '<leader>gd', function()
+  local clients = vim.lsp.get_active_clients()
+  if #clients > 0 then
+    builtin.lsp_definitions() -- Use Telescope for LSP definitions
+  else
+    print("No LSP server attached")
+  end
+end, { desc = 'Go to Definition' })
+
 -- Bufferline
 keymap("n", "<leader>bn", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
 keymap("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
