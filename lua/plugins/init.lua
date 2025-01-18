@@ -25,6 +25,29 @@ return require("lazy").setup({
     end,
   },
 
+  -- Treesitter for better syntax highlighting
+  {
+    "nvim-treesitter/nvim-treesitter",
+    build = ":TSUpdate",
+    config = function()
+      require("nvim-treesitter.configs").setup({
+        -- Add all required parsers here
+        ensure_installed = { "lua", "python", "javascript", "elixir", "eex", "heex" },
+
+        -- Enable syntax highlighting
+        highlight = {
+          enable = true, -- Enable Treesitter-based highlighting
+          additional_vim_regex_highlighting = false, -- Disable legacy Vim regex highlighting
+        },
+
+        -- Enable Treesitter-based indentation for supported languages
+        indent = {
+          enable = true,
+        },
+      })
+    end,
+  },
+
   -- File explorer
   {
     "nvim-tree/nvim-tree.lua",
@@ -75,29 +98,6 @@ return require("lazy").setup({
     dependencies = "nvim-tree/nvim-web-devicons",
     config = function()
       require("plugins.specs.bufferline")
-    end,
-  },
-
-  -- Treesitter for better syntax highlighting
-  {
-    "nvim-treesitter/nvim-treesitter",
-    build = ":TSUpdate",
-    config = function()
-      require("nvim-treesitter.configs").setup({
-        -- Add all required parsers here
-        ensure_installed = { "lua", "python", "javascript", "elixir", "eex", "heex" },
-
-        -- Enable syntax highlighting
-        highlight = {
-          enable = true, -- Enable Treesitter-based highlighting
-          additional_vim_regex_highlighting = false, -- Disable legacy Vim regex highlighting
-        },
-
-        -- Enable Treesitter-based indentation for supported languages
-        indent = {
-          enable = true,
-        },
-      })
     end,
   },
 
