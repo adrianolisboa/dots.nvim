@@ -14,7 +14,6 @@ keymap('n', '<leader>fg', builtin.live_grep, { desc = 'Telescope live grep' })
 keymap('n', '<leader>fb', builtin.buffers, { desc = 'Telescope buffers' })
 keymap('n', '<leader>fh', builtin.help_tags, { desc = 'Telescope help tags' })
 
-
 -- Bufferline
 keymap("n", "<leader>bn", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
 keymap("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
@@ -22,26 +21,12 @@ keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Close current buffer" })
 keymap("n", "<leader>br", ":BufferLineMoveNext<CR>", { desc = "Move buffer right" })
 keymap("n", "<leader>bl", ":BufferLineMovePrev<CR>", { desc = "Move buffer left" })
 
--- Neotest keymaps
-keymap("n", "<leader>tn", function()
-  require("neotest").run.run()
-end, { desc = "Run nearest test" })
-
-keymap("n", "<leader>tf", function()
-  require("neotest").run.run(vim.fn.expand("%"))
-end, { desc = "Run tests in the current file" })
-
-keymap("n", "<leader>ts", function()
-  require("neotest").run.run("test_suite")
-end, { desc = "Run the entire test suite" })
-
-keymap("n", "<leader>tl", function()
-  require("neotest").run.run_last()
-end, { desc = "Re-run the last test" })
-
-keymap("n", "<leader>tv", function()
-  require("neotest").output.open({ enter = true })
-end, { desc = "View test output" })
+-- Vim-Test
+keymap("n", "<leader>tn", ":TestNearest<CR>", { desc = "Run nearest test" })
+keymap("n", "<leader>tf", ":TestFile<CR>", { desc = "Run tests in file" })
+keymap("n", "<leader>ts", ":TestSuite<CR>", { desc = "Run entire test suite" })
+keymap("n", "<leader>tl", ":TestLast<CR>", { desc = "Re-run last test" })
+keymap("n", "<leader>tv", ":TestVisit<CR>", { desc = "Visit last test location" })
 
 -- Formatter
 keymap("n", "<leader>mf", function()

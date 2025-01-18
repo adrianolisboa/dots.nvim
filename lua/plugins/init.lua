@@ -126,18 +126,11 @@ return require("lazy").setup({
   },
 
   ------ Programming Plugins ------
+  -- test.nvim: Test runner
   {
-    "nvim-neotest/neotest",
-    dependencies = {
-      "nvim-lua/plenary.nvim",            -- Required for general functionality
-      "nvim-treesitter/nvim-treesitter", -- For better parsing and support
-      "antoinemadec/FixCursorHold.nvim", -- Fix CursorHold performance
-      "jfpedroza/neotest-elixir",        -- Elixir adapter
-      "haydenmeade/neotest-jest",        -- JavaScript (Jest) adapter
-      "nvim-neotest/nvim-nio",
-    },
+    "vim-test/vim-test",
     config = function()
-      require("plugins.specs.neotest")
+      require("plugins.specs.vim-test")
     end,
   },
 
