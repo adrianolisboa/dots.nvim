@@ -118,14 +118,6 @@ return require("lazy").setup({
     end,
   },
 
-  -- Which-key for keybindings
-  {
-    "folke/which-key.nvim",
-    config = function()
-      require("plugins.specs.which-key")
-    end,
-  },
-
   ------ A.I Plugins ------
   -- GitHub Copilot
   {
