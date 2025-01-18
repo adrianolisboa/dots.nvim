@@ -1,6 +1,10 @@
 -- Key mapping utility
 local keymap = vim.keymap.set
 
+-- General key mappings
+-- Turn off search highlight
+keymap("n", "<leader>nohl", ":nohlsearch<CR>", { desc = "Turn off search highlight" })
+
 -- Nvim-Tree
 keymap("n", "<leader>nt", function()
   require("nvim-tree.api").tree.toggle()
