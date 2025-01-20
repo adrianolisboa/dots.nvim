@@ -73,12 +73,19 @@ return require("lazy").setup({
   },
 
   -- Telescope for fuzzy finding
+  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'CFLAGS=-march=native make' },
+
   {
     'nvim-telescope/telescope.nvim',
-    branch = '0.1.x',
-    dependencies = { 'nvim-lua/plenary.nvim' }, -- Required dependency
+    dependencies = {
+      'nvim-lua/popup.nvim',
+      'nvim-lua/plenary.nvim',
+      'nvim-telescope/telescope-github.nvim',
+      'nvim-telescope/telescope-ui-select.nvim',
+      'nvim-telescope/telescope-fzf-native.nvim'
+    },
     config = function()
-      require('telescope').setup()
+      require("plugins.specs.telescope")
     end,
   },
 
