@@ -57,4 +57,8 @@ keymap("n", "<leader>mv", function()
   require("conform").format({ async = false, verbose = true })
 end, { desc = "Verbose format" })
 
+-- Other key mappings
+vim.keymap.set('n', '<leader>cf', ':CopyFullPath<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>cr', ':CopyRelativePath<CR>', { noremap = true, silent = true })
+
 return true
