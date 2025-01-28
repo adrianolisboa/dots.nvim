@@ -10,6 +10,9 @@ keymap("n", "<leader>nt", function()
   require("nvim-tree.api").tree.toggle()
 end, { noremap = true, silent = true, desc = "Toggle Nvim Tree" })
 
+-- Keybinding for opening tree at the current file
+vim.keymap.set('n', '<leader>nf', ':NvimTreeFindFile<CR>', { noremap = true, silent = true })
+
 -- Telescope
 local builtin = require('telescope.builtin')
 

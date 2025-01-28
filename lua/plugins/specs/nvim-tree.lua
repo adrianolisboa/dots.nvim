@@ -12,8 +12,13 @@ require("nvim-tree").setup({
   },
   renderer = {
     group_empty = true,
+    highlight_opened_files = "all", -- Highlight the opened file in the tree
   },
   filters = {
     dotfiles = true,
+  },
+  update_focused_file = {
+    enable = true, -- Automatically focus on the current file
+    update_cwd = true, -- Update the working directory to match the file's directory
   },
 })
