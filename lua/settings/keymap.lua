@@ -33,9 +33,11 @@ end, { desc = 'Go to Definition' })
 -- Bufferline
 keymap("n", "<leader>bn", ":BufferLineCycleNext<CR>", { desc = "Next buffer" })
 keymap("n", "<leader>bp", ":BufferLineCyclePrev<CR>", { desc = "Previous buffer" })
-keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Close current buffer" })
 keymap("n", "<leader>br", ":BufferLineMoveNext<CR>", { desc = "Move buffer right" })
 keymap("n", "<leader>bl", ":BufferLineMovePrev<CR>", { desc = "Move buffer left" })
+keymap("n", "<leader>bd", ":bdelete<CR>", { desc = "Close current buffer" })
+keymap("n", "<leader>ba", ":bufdo bdelete<CR>", { desc = "Close all buffers" })
+keymap("n", "<leader>bo", ":%bd|e#|bd#<CR>", { desc = "Close all except current" })
 
 -- Vim-Test
 keymap("n", "<leader>tn", ":TestNearest<CR>", { desc = "Run nearest test" })
