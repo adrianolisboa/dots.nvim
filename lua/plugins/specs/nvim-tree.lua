@@ -15,7 +15,7 @@ require("nvim-tree").setup({
     highlight_opened_files = "all", -- Highlight the opened file in the tree
   },
   filters = {
-    dotfiles = true,
+    dotfiles = false,
   },
   update_focused_file = {
     enable = true, -- Automatically focus on the current file
