@@ -195,4 +195,13 @@ return require("lazy").setup({
       require("plugins.specs.lsp")
     end,
   },
+
+  -- Which-key for displaying keybindings
+  {
+    "folke/which-key.nvim",
+    event = "VeryLazy",
+    config = function()
+      require("plugins.specs.which-key")
+    end,
+  },
 })
