@@ -63,4 +63,26 @@ end, { desc = "Verbose format" })
 vim.keymap.set('n', '<leader>cf', ':CopyFullPath<CR>', { noremap = true, silent = true })
 vim.keymap.set('n', '<leader>cr', ':CopyRelativePath<CR>', { noremap = true, silent = true })
 
+-- Avante keymaps
+vim.keymap.set("n", "<leader>aa", "<cmd>AvanteAsk<cr>", { noremap = true, silent = true, desc = "Avante: Ask AI" })
+vim.keymap.set("n", "<leader>at", "<cmd>AvanteToggle<cr>", { noremap = true, silent = true, desc = "Avante: Toggle Sidebar" })
+vim.keymap.set("n", "<leader>ar", "<cmd>AvanteRefresh<cr>", { noremap = true, silent = true, desc = "Avante: Refresh Sidebar" })
+vim.keymap.set("n", "<leader>af", "<cmd>AvanteFocus<cr>", { noremap = true, silent = true, desc = "Avante: Focus Sidebar" })
+vim.keymap.set("n", "<leader>a?", "<cmd>AvanteSwitchProvider<cr>", { noremap = true, silent = true, desc = "Avante: Switch AI Provider" })
+vim.keymap.set("n", "<leader>ae", "<cmd>AvanteEdit<cr>", { noremap = true, silent = true, desc = "Avante: Edit Selected Blocks" })
+
+-- Conflict resolution keymaps
+vim.keymap.set("n", "co", "<cmd>AvanteChooseOurs<cr>", { noremap = true, silent = true, desc = "Avante: Choose Ours" })
+vim.keymap.set("n", "ct", "<cmd>AvanteChooseTheirs<cr>", { noremap = true, silent = true, desc = "Avante: Choose Theirs" })
+vim.keymap.set("n", "ca", "<cmd>AvanteChooseAllTheirs<cr>", { noremap = true, silent = true, desc = "Avante: Choose All Theirs" })
+vim.keymap.set("n", "c0", "<cmd>AvanteChooseNone<cr>", { noremap = true, silent = true, desc = "Avante: Choose None" })
+vim.keymap.set("n", "cb", "<cmd>AvanteChooseBoth<cr>", { noremap = true, silent = true, desc = "Avante: Choose Both" })
+vim.keymap.set("n", "cc", "<cmd>AvanteChooseCursor<cr>", { noremap = true, silent = true, desc = "Avante: Choose Cursor" })
+
+-- Navigation keymaps
+vim.keymap.set("n", "]x", "<cmd>AvanteNextConflict<cr>", { noremap = true, silent = true, desc = "Avante: Next Conflict" })
+vim.keymap.set("n", "[x", "<cmd>AvantePrevConflict<cr>", { noremap = true, silent = true, desc = "Avante: Previous Conflict" })
+vim.keymap.set("n", "]]", "<cmd>AvanteNextCodeblock<cr>", { noremap = true, silent = true, desc = "Avante: Next Codeblock" })
+vim.keymap.set("n", "[[", "<cmd>AvantePrevCodeblock<cr>", { noremap = true, silent = true, desc = "Avante: Previous Codeblock" })
+
 return true
