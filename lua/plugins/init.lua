@@ -132,6 +132,8 @@ return require("lazy").setup({
     lazy = false, -- Load immediately during startup
   },
 
+  require("plugins.specs.avante"),
+
   ------ Programming Plugins ------
   -- test.nvim: Test runner
   {
