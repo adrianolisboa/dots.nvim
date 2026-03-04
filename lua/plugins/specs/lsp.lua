@@ -8,18 +8,29 @@ local util = require("lspconfig.util") -- Utility functions for root detection
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 -- Lexical LSP configuration
-lspconfig.lexical.setup({
-  cmd = { "/Users/adriano/Projects/lexical/_build/dev/package/lexical/bin/start_lexical.sh" }, -- Path to the server script
-  root_dir = function(fname)
-    return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
-  end,
-  filetypes = { "elixir", "eelixir", "heex" }, -- Supported file types
-  capabilities = capabilities, -- Enable nvim-cmp capabilities for this server
-  settings = {}, -- Optional server-specific settings
-})
+--lspconfig.lexical.setup({
+--  cmd = { "start_lexical.sh" }, -- Path to the server script
+--  root_dir = function(fname)
+--    return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
+--  end,
+--  filetypes = { "elixir", "eelixir", "heex" }, -- Supported file types
+--  capabilities = capabilities, -- Enable nvim-cmp capabilities for this server
+--  settings = {}, -- Optional server-specific settings
+--})
 
--- Add configurations for other language servers here
--- Example: Pyright
-lspconfig.pyright.setup({
-  capabilities = capabilities, -- Enable nvim-cmp capabilities
-})
+-- ElixirLS configuration
+--lspconfig.elixirls.setup({
+--  cmd = { "/Users/adriano/Projects/elixir-ls/release/language_server.sh" },
+--  root_dir = function(fname)
+--    return util.root_pattern("mix.exs", ".git")(fname) or vim.loop.cwd()
+--  end,
+--  filetypes = { "elixir", "eelixir", "heex" },
+--  capabilities = capabilities,
+--  settings = {
+--    elixirLS = {
+--      enableFormatterPluginWarnings = false,
+--      dialyzerEnabled = false,
+--      fetchDeps = false,
+--    }
+--  }
+--})
