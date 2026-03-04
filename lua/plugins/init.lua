@@ -126,12 +126,6 @@ return require("lazy").setup({
   },
 
   ------ A.I Plugins ------
-  -- GitHub Copilot
-  {
-    "github/copilot.vim",
-    lazy = false, -- Load immediately during startup
-  },
-
   require("plugins.specs.avante"),
 
   ------ Programming Plugins ------
